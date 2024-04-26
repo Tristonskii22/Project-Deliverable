@@ -6,11 +6,11 @@
         public string Name;
         public string Address;
 
-        public int GetID()
+        public int GetId()
         {
             return Id;
         }
-        public void SetID(int id)
+        public void SetId(int id)
         {
             Id = id;
         }
