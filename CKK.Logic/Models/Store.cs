@@ -53,5 +53,14 @@ public class Store
 		{
 			_product1 = null;
 		}
+		else if (productNumber == 2)
+		{
+			_product2 = null;
+		}
+		else if (productNumber == 3)
+		{
+			_product3 = null;
+		}
+
 	}
 }
