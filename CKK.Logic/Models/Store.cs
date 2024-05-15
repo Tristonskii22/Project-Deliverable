@@ -61,6 +61,39 @@ public class Store
 		{
 			_product3 = null;
 		}
+		
 
+	}
+	public Product GetStoreItem(int productNumber)
+	{
+		if(productNumber == 1)
+		{
+			return _product1;
+		}
+		else if (productNumber == 2)
+		{
+			return _product2;
+		}
+		else if (productNumber==3)
+		{
+			return _product3;
+		}
+		return null;
+	}
+	public Product FindStoreItemById(int id)
+	{
+		if(_product1.GetId() == id)
+		{
+			return _product1;
+		}
+		else if(_product2.GetId() == id)
+		{
+			return _product2;
+		}
+		else if (_product3.GetId() == id)
+		{
+			return _product3;
+		}
+		return null;
 	}
 }
