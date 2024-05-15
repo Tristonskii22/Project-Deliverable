@@ -8,11 +8,6 @@ public class Store
 	private Product _product1;
 	private Product _product2;
 	private Product _product3;
-	public Store(string name, int id)
-	{
-		_id = id;
-		_name = name;
-	}
 	public int GetId ()
 	{
 		return _id;
