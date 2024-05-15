@@ -8,7 +8,7 @@ public class Store
 	private Product _product1;
 	private Product _product2;
 	private Product _product3;
-	public Store(int id, string name)
+	public Store(string name, int id)
 	{
 		_id = id;
 		_name = name;
