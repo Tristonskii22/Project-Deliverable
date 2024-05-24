@@ -118,15 +118,15 @@ namespace CKK.Logic.Models
             var grandtotal = 0m;
             if (_product1 != null)
             {
-                grandtotal += _product1.GetTotal();
+                return grandtotal += _product1.GetTotal();
             }
             else if (_product2 != null)
             {
-                grandtotal += _product2.GetTotal();
+                return grandtotal += _product2.GetTotal();
             }
             else if (_product3 != null)
             {
-                grandtotal += _product3.GetTotal();
+                return grandtotal += _product3.GetTotal();
             }
             return grandtotal;
         }
