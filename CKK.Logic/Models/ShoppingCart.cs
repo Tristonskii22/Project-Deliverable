@@ -57,7 +57,7 @@ namespace CKK.Logic.Models
                 _product2.SetQuantity(_product2.GetQuantity() + quantity);
                 return _product2;
             }
-            if (_product1 == null)
+            if (_product2 == null)
             {
                 _product2 = new ShoppingCartItem(prod, quantity);
                 return _product2;
@@ -120,11 +120,11 @@ namespace CKK.Logic.Models
             {
                 grandtotal += _product1.GetTotal();
             }
-            if (_product2 != null)
+            else if (_product2 != null)
             {
                 grandtotal += _product2.GetTotal();
             }
-            if (_product3 != null)
+            else if (_product3 != null)
             {
                 grandtotal += _product3.GetTotal();
             }
@@ -136,11 +136,11 @@ namespace CKK.Logic.Models
             {
                 return _product1;
             }
-            if (productNumber == 2)
+            else if (productNumber == 2)
             {
                 return _product2;
             }
-            if (productNumber ==3)
+            else if (productNumber ==3)
             {
                 return _product3;
             }
