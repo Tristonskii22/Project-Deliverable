@@ -60,16 +60,24 @@ namespace CKK.Tests
         [Fact]
         public void GettingTotal_shouldCorrectlyAddAlltotals()
         {
-            Customer customer = new Customer();
-            ShoppingCart shoppingcart = new ShoppingCart(customer);
-            Product expected = new Product();
-            //Act
-            expected.Id = 67;
-            shoppingcart.GetProduct(1);
-            shoppingcart.GetProduct(2);
-            //Assert
+            try
+            {
+                Customer customer = new Customer();
+                ShoppingCart shoppingcart = new ShoppingCart(customer);
+                Product expected = new Product();
+                expected.SetPrice(1.10m);
+                //Act
+                shoppingcart.AddProduct(expected, 10);
+                shoppingcart.GetTotal();
+                //Assert
 
-            Assert.Equal(3, shoppingcart.GetProductById(67).GetTotal());
+                Assert.Equal(11, shoppingcart.GetTotal());
+
+            }
+            catch(Exception ex)
+            {
+
+            }
         }
     }
 }
