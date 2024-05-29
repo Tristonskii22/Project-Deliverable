@@ -10,12 +10,66 @@ namespace CKK.Tests
         {
             try
             {
-                ShoppingCart shoppingcart = new ShoppingCart();
-                Product expected = ;
-                ShoppingCart.AddProduct(expected)
+                //Asseble
+                //Making instance of customer class
+                Customer customer = new Customer();
+                //Making instance of Shoppingcart
+                
+                ShoppingCart shoppingcart = new ShoppingCart(customer);
+                //Making an instance of product
+                Product expected = new Product();
+
+                //Act
+                //setting product id to 67
+                expected.Id = 67;
+                //Calling add product method of shoppingcart 
+                shoppingcart.AddProduct(expected);
+
+
+                //Assert
+                //Expected: what I should be getting, actual: what I am actually getting
+                Assert.Equal(67, shoppingcart.GetProductById(67).GetProduct().Id);
+            }
+            catch(Exception ex)
+            {
+
             }
 
 
+        }
+        [Fact]
+        public void RemovingProduct_ShouldCorrectlyRemoveProduct()
+        {
+            try
+            {
+                Customer customer = new Customer();
+                ShoppingCart shoppingcart = new ShoppingCart(customer);
+                Product expected = new Product();
+                //Act
+                expected.Id = 67;
+                shoppingcart.AddProduct(expected, 10);
+                shoppingcart.RemoveProduct(expected, 5);
+                //Assert
+                Assert.Equal(5, shoppingcart.GetProductById(67).GetQuantity());
+            }
+            catch(Exception ex)
+            {
+
+            }
+        }
+        [Fact]
+        public void GettingTotal_shouldCorrectlyAddAlltotals()
+        {
+            Customer customer = new Customer();
+            ShoppingCart shoppingcart = new ShoppingCart(customer);
+            Product expected = new Product();
+            //Act
+            expected.Id = 67;
+            shoppingcart.GetProduct(1);
+            shoppingcart.GetProduct(2);
+            //Assert
+
+            Assert.Equal(3, shoppingcart.GetProductById(67).GetTotal());
         }
     }
 }
