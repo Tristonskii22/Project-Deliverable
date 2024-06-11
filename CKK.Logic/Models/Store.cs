@@ -5,85 +5,85 @@ namespace CKK.Logic.Models;
 
 public class Store
 {
-	private int _id;
-	private string _name;
-    private  List<StoreItem> Item = new List<StoreItem>();
-	public int GetId ()
-	{
-		return _id;
-	}
-	public void SetId(int id)
-	{
-		_id = id;
-	}
-	public string GetName()
-	{
-		return _name;
-	}
-	public void SetName(string name)
-	{
-		_name = name;
-	}
-	public StoreItem AddStoreItem(Product prod, int quantity)
-	{
+    private int _id;
+    private string _name;
+    private List<StoreItem> Item = new List<StoreItem>();
+    public int GetId()
+    {
+        return _id;
+    }
+    public void SetId(int id)
+    {
+        _id = id;
+    }
+    public string GetName()
+    {
+        return _name;
+    }
+    public void SetName(string name)
+    {
+        _name = name;
+    }
+    public StoreItem AddStoreItem(Product prod, int quantity)
+    {
         if (quantity <= 0)
         {
             return null;
         }
         StoreItem temp = new StoreItem(prod, quantity);
 
-		var st = FindStoreItemById(prod.Id);
-		
-		if (st != null)
-		{
-			st.SetQuantity(st.GetQuantity() + quantity);
-			return st;
-		}
-		Item.Add(temp);
-		return temp;
+        var st = FindStoreItemById(prod.Id);
 
-		
+        if (st != null)
+        {
+            st.SetQuantity(st.GetQuantity() + quantity);
+            return st;
+        }
+        Item.Add(temp);
+        return temp;
 
-	}
-	public StoreItem RemoveStoreItem(int id, int quantity)
-	{
-		if (quantity <= 0 )
-		{
-			return null;
-		}
-		
-		var st = FindStoreItemById(id);
-		if(st != null)
-		{
-			if (st.GetQuantity() - quantity > 0)
-			{
-				st.SetQuantity(st.GetQuantity() - quantity);
-				return st;
-			}
-			if (st.GetQuantity() - quantity <= 0)
-			{
-				st.SetQuantity(0);
 
-			}
-		}
-		return st;
 
-		
+    }
+    public StoreItem RemoveStoreItem(int id, int quantity)
+    {
+        if (quantity <= 0)
+        {
+            return null;
+        }
 
-	}
-	public List<StoreItem> GetStoreItem()
-	{
-		return Item;
-	}
-	public StoreItem FindStoreItemById(int id)
-	{
-		for(int i = 0; i < Item.Count(); i++)
-		{
-			if (Item[i].GetProduct().Id == id)
-			{
-				return Item[i];
-			}
-		}
-		return null;
-	}
+        var st = FindStoreItemById(id);
+        if (st != null)
+        {
+            if (st.GetQuantity() - quantity > 0)
+            {
+                st.SetQuantity(st.GetQuantity() - quantity);
+                return st;
+            }
+            if (st.GetQuantity() - quantity <= 0)
+            {
+                st.SetQuantity(0);
+
+            }
+        }
+        return st;
+
+
+
+    }
+    public List<StoreItem> GetStoreItem()
+    {
+        return Item;
+    }
+    public StoreItem FindStoreItemById(int id)
+    {
+        for (int i = 0; i < Item.Count(); i++)
+        {
+            if (Item[i].GetProduct().Id == id)
+            {
+                return Item[i];
+            }
+        }
+        return null;
+    }
 }
