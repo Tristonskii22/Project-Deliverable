@@ -1,13 +1,13 @@
 ﻿using System;
+using System.Security.Cryptography.X509Certificates;
+
 namespace CKK.Logic.Models;
 
 public class Store
 {
 	private int _id;
 	private string _name;
-	private Product _product1;
-	private Product _product2;
-	private Product _product3;
+    private  List<StoreItem> Item = new List<StoreItem>();
 	public int GetId ()
 	{
 		return _id;
@@ -24,70 +24,65 @@ public class Store
 	{
 		_name = name;
 	}
-	public void AddStoreItem(Product product)
+	public StoreItem AddStoreItem(Product prod, int quantity)
 	{
-		if(_product1 ==null)
-		{
-			_product1 = product;
-			
-		} 
-		else if (_product2 == null)
-		{
-			_product2 = product;
+        if (quantity <= 0)
+        {
+            return null;
+        }
+        StoreItem temp = new StoreItem(prod, quantity);
 
-		}
-		else if (_product3 == null)
+		var st = FindStoreItemById(prod.Id);
+		
+		if (st != null)
 		{
-			_product3 = product;
+			st.SetQuantity(st.GetQuantity() + quantity);
+			return st;
 		}
+		Item.Add(temp);
+		return temp;
 
-	}
-	public void RemoveStoreItem(int productNumber)
-	{
-		if(productNumber == 1)
-		{
-			_product1 = null;
-		}
-		else if (productNumber == 2)
-		{
-			_product2 = null;
-		}
-		else if (productNumber == 3)
-		{
-			_product3 = null;
-		}
 		
 
 	}
-	public Product GetStoreItem(int productNumber)
+	public StoreItem RemoveStoreItem(int id, int quantity)
 	{
-		if(productNumber == 1)
+		if (quantity <= 0 )
 		{
-			return _product1;
+			return null;
 		}
-		else if (productNumber == 2)
+		
+		var st = FindStoreItemById(id);
+		if(st != null)
 		{
-			return _product2;
+			if (st.GetQuantity() - quantity > 0)
+			{
+				st.SetQuantity(st.GetQuantity() - quantity);
+				return st;
+			}
+			if (st.GetQuantity() - quantity <= 0)
+			{
+				st.SetQuantity(0);
+
+			}
 		}
-		else if (productNumber==3)
-		{
-			return _product3;
-		}
-		return null;
+		return st;
+
+		
+
 	}
-	public Product FindStoreItemById(int id)
+	public List<StoreItem> GetStoreItem()
 	{
-		if(_product1.GetId() == id)
+		return Item;
+	}
+	public StoreItem FindStoreItemById(int id)
+	{
+		for(int i = 0; i < Item.Count(); i++)
 		{
-			return _product1;
-		}
-		else if(_product2.GetId() == id)
-		{
-			return _product2;
-		}
-		else if (_product3.GetId() == id)
-		{
-			return _product3;
+			if (Item[i].GetProduct().Id == id)
+			{
+				return Item[i];
+			}
 		}
 		return null;
 	}
