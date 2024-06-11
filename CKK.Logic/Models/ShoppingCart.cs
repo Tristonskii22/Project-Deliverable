@@ -75,7 +75,7 @@ namespace CKK.Logic.Models
             }
             return grandtotal;
         }
-        public List <ShoppingCartItem> GetProduct()
+        public List <ShoppingCartItem> GetProducts()
         {
             return _items;
         }

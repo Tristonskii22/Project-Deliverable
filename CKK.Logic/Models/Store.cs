@@ -71,7 +71,7 @@ public class Store
 
 
     }
-    public List<StoreItem> GetStoreItem()
+    public List<StoreItem> GetStoreItems()
     {
         return Item;
     }
