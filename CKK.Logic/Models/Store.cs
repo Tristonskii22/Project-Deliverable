@@ -1,9 +1,10 @@
-﻿using System;
+﻿using CKK.Logic.Interfaces;
+using System;
 using System.Security.Cryptography.X509Certificates;
 
 namespace CKK.Logic.Models;
 
-public class Store
+public class Store : Entity
 {
     private int _id;
     private string _name;
