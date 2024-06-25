@@ -4,9 +4,12 @@ namespace CKK.Logic.Models
 {
     public class Customer : Entity
     {
-        public int Id;
-        public string Name;
-        public string Address;
+
+        public string Address
+        { get; set; }
+        //public int Id;
+        //public string Name;
+        //public string Address;
 
         
 

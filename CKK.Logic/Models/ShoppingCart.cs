@@ -9,18 +9,22 @@ namespace CKK.Logic.Models
 {
     public class ShoppingCart : InventoryItem
     {
-        private Customer _customer;
+        public Product Products { get; set; }
+        public Customer Customer
+        {
+            get; set;
+        }
         private List<ShoppingCartItem> _items = new List<ShoppingCartItem>();
         //private ShoppingCartItem _product1;
         //private ShoppingCartItem _product2;
         //private ShoppingCartItem _product3;
         public ShoppingCart (Customer cust)
         {
-            _customer = cust;
+            Customer = cust;
         }
         public int GetCustomerId()
         {
-            return _customer.GetId();
+            return Customer.GetId();
         }
         public ShoppingCartItem GetProductById(int id)
         {

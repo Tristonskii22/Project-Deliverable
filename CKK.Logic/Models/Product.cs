@@ -11,9 +11,13 @@ namespace CKK.Logic.Models
     
     public class Product : Entity
     {
-        public int Id;
-        public string Name;
-        public decimal Price;
+        public decimal Price
+        {
+            get; set;
+        }
+        //public int Id;
+        //public string Name;
+        //public decimal Price;
 
         public int GetId()
         {
