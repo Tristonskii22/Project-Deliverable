@@ -4,10 +4,10 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace CKK.Logic.Models;
 
-public class Store : Entity
+public class Store :  IStore
 {
-    private int _id;
-    private string _name;
+    public int _id { get; set; }
+    public string _name { get; set; }
     private List<StoreItem> Item = new List<StoreItem>();
     public int GetId()
     {
