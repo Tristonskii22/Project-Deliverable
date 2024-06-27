@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CKK.Logic.Interfaces
 {
-    interface IShoppingCart
+    public interface IShoppingCart
     {
         public int GetCustomerId();
         public ShoppingCartItem AddProduct(Product prod, int quant);
