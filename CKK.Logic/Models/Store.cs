@@ -4,7 +4,7 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace CKK.Logic.Models;
 
-public class Store :  IStore
+public class Store : Entity 
 {
     public int _id { get; set; }
     public string _name { get; set; }
