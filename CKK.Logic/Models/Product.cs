@@ -1,4 +1,5 @@
-﻿using CKK.Logic.Interfaces;
+﻿using CKK.Logic.Exceptions;
+using CKK.Logic.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -13,7 +14,19 @@ namespace CKK.Logic.Models
     {
         public decimal Price
         {
-            get; set;
+            get
+            {
+                return Price;
+            }
+            set
+            {
+                if(value >= 0)
+                    Price = value;
+                else
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+            }
         }
         //public int Id;
         //public string Name;

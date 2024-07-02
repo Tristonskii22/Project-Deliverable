@@ -1,4 +1,5 @@
-﻿using CKK.Logic.Interfaces;
+﻿using CKK.Logic.Exceptions;
+using CKK.Logic.Interfaces;
 using System;
 using System.Security.Cryptography.X509Certificates;
 
@@ -29,7 +30,7 @@ public class Store : Entity, IStore
     {
         if (quantity <= 0)
         {
-            return null;
+            InventoryItemStockTooLowException.InventoryStockTooLow();
         }
         StoreItem temp = new StoreItem(prod, quantity);
 
@@ -50,7 +51,7 @@ public class Store : Entity, IStore
     {
         if (quantity <= 0)
         {
-            return null;
+            ProductDoesNotExistException.ProductDoesNotExist();
         }
 
         var st = FindStoreItemById(id);
@@ -67,7 +68,7 @@ public class Store : Entity, IStore
 
             }
         }
-        return st;
+        throw new ArgumentOutOfRangeException();
 
 
 
@@ -83,6 +84,10 @@ public class Store : Entity, IStore
             if (Item[i].GetProduct().Id == id)
             {
                 return Item[i];
+            }
+            else if(id < 0)
+            {
+                InvalIdIdException.EntityId();
             }
         }
         return null;

@@ -6,18 +6,17 @@ using System.Threading.Tasks;
 
 namespace CKK.Logic.Exceptions
 {
-    class ProductDoesNotExistException
+    class InvalIdIdException
     {
-        public static void ProductDoesNotExist()
+        public static void EntityId()
         {
             try
             {
                 throw new Exception("Error");
-
             }
             catch
             {
-                Console.WriteLine("This product does not exist");
+                Console.WriteLine("Invalid Entry");
             }
         }
     }
