@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CKK.Logic.Exceptions
 {
-    class ProductDoesNotExistException
+    public class ProductDoesNotExistException
     {
         public static void ProductDoesNotExist()
         {

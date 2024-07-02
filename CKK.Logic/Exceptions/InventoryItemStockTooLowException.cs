@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CKK.Logic.Exceptions
 {
-    class InventoryItemStockTooLowException
+    public class InventoryItemStockTooLowException
     {
         public static void InventoryStockTooLow()
         {
