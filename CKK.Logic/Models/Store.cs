@@ -87,7 +87,7 @@ public class Store : Entity, IStore
             }
             else if(id < 0)
             {
-                InvalIdIdException.EntityId();
+                InvalidIdException.EntityId();
             }
         }
         return null;

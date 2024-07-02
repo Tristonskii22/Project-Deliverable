@@ -23,7 +23,7 @@ namespace CKK.Logic.Interfaces
                 }
                 else
                 {
-                    InvalIdIdException.EntityId();
+                    InvalidIdException.EntityId();
                 }
             }
         }

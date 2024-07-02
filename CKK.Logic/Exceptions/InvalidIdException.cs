@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CKK.Logic.Exceptions
 {
-    public class InvalIdIdException
+    public class InvalidIdException
     {
         public static void EntityId()
         {

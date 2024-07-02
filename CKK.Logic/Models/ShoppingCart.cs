@@ -32,7 +32,7 @@ namespace CKK.Logic.Models
             return _items.Find(x => x.GetProduct().GetId() == id);
             if (id < 0)
             {
-                InvalIdIdException.EntityId();
+                InvalidIdException.EntityId();
             }
         }
         public ShoppingCartItem AddProduct(Product prod, int quantity)
