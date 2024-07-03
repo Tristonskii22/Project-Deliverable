@@ -38,7 +38,7 @@ public class Store : Entity, IStore
 
         if (st != null)
         {
-            st.SetQuantity(st.GetQuantity() + quantity);
+            st.Quantity = st.Quantity + quantity;
             return st;
         }
         Item.Add(temp);
