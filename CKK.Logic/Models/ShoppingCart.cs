@@ -60,7 +60,7 @@ namespace CKK.Logic.Models
         {
             if (quantity < 0)
             {
-                throw new ProductDoesNotExistException();
+                throw new ArgumentOutOfRangeException();
             }
             var RemoveItem = GetProductById(id);
             if (RemoveItem != null)
@@ -74,7 +74,7 @@ namespace CKK.Logic.Models
                 RemoveItem.Quantity = RemoveItem.Quantity - quantity;
                 return RemoveItem;
             }
-            throw new ArgumentOutOfRangeException();
+            throw new ProductDoesNotExistException();
         }
         public decimal GetTotal()
         {
