@@ -29,7 +29,7 @@ namespace CKK.Logic.Models
         }
         public ShoppingCartItem GetProductById(int id)
         {
-            return _items.Find(x => x.product.GetId() == id);
+            return _items.Find(x => x.Product.GetId() == id);
             if (id < 0)
             {
                 InvalidIdException.EntityId();

@@ -16,7 +16,7 @@ namespace CKK.Logic.Models
         public ShoppingCartItem(Product _product, int _quantity)
         {
             Quantity = _quantity;
-            product = _product;
+            Product = _product;
         }
         //public int GetQuantity()
         //{

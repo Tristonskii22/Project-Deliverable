@@ -14,7 +14,7 @@ namespace CKK.Logic.Models
 
         public StoreItem(Product _product, int _quantity)
         {
-            product = _product;
+            Product = _product;
             Quantity = _quantity;
         }
         //public int GetQuantity()

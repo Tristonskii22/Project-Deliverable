@@ -81,7 +81,7 @@ public class Store : Entity, IStore
     {
         for (int i = 0; i < Item.Count(); i++)
         {
-            if (Item[i].product.Id == id)
+            if (Item[i].Product.Id == id)
             {
                 return Item[i];
             }
