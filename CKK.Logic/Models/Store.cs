@@ -57,14 +57,14 @@ public class Store : Entity, IStore
         var st = FindStoreItemById(id);
         if (st != null)
         {
-            if (st.GetQuantity() - quantity > 0)
+            if (st.Quantity - quantity > 0)
             {
-                st.SetQuantity(st.GetQuantity() - quantity);
+                st.Quantity = st.Quantity - quantity;
                 return st;
             }
-            if (st.GetQuantity() - quantity <= 0)
+            if (st.Quantity - quantity <= 0)
             {
-                st.SetQuantity(0);
+                st.Quantity = 0;
 
             }
         }
@@ -81,7 +81,7 @@ public class Store : Entity, IStore
     {
         for (int i = 0; i < Item.Count(); i++)
         {
-            if (Item[i].GetProduct().Id == id)
+            if (Item[i].product.Id == id)
             {
                 return Item[i];
             }

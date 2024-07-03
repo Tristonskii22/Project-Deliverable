@@ -29,7 +29,7 @@ namespace CKK.Logic.Models
         }
         public ShoppingCartItem GetProductById(int id)
         {
-            return _items.Find(x => x.GetProduct().GetId() == id);
+            return _items.Find(x => x.product.GetId() == id);
             if (id < 0)
             {
                 InvalidIdException.EntityId();
@@ -44,7 +44,7 @@ namespace CKK.Logic.Models
             var AddItem = GetProductById(prod.GetId());
             if (AddItem != null)
             {
-                AddItem.SetQuantity(AddItem.GetQuantity() + quantity);
+                AddItem.Quantity = AddItem.Quantity + quantity;
                 return AddItem;
             }
             ShoppingCartItem itemadd = new ShoppingCartItem(prod, quantity);
@@ -65,13 +65,13 @@ namespace CKK.Logic.Models
             var RemoveItem = GetProductById(id);
             if (RemoveItem != null)
             {
-                if(RemoveItem.GetQuantity() - quantity <= 0)
+                if(RemoveItem.Quantity - quantity <= 0)
                 {
-                    RemoveItem.SetQuantity(0);
+                    RemoveItem.Quantity = 0;
                     _items.Remove(RemoveItem);
                     return RemoveItem;
                 }
-                RemoveItem.SetQuantity(RemoveItem.GetQuantity() - quantity);
+                RemoveItem.Quantity = RemoveItem.Quantity - quantity;
                 return RemoveItem;
             }
             throw new ArgumentOutOfRangeException();
