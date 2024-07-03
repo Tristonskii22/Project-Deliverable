@@ -30,7 +30,7 @@ public class Store : Entity, IStore
     {
         if (quantity <= 0)
         {
-            InventoryItemStockTooLowException.InventoryStockTooLow();
+            throw new InventoryItemStockTooLowException();
         }
         StoreItem temp = new StoreItem(prod, quantity);
 
@@ -51,7 +51,7 @@ public class Store : Entity, IStore
     {
         if (quantity <= 0)
         {
-            ProductDoesNotExistException.ProductDoesNotExist();
+            throw new ProductDoesNotExistException();
         }
 
         var st = FindStoreItemById(id);
@@ -87,7 +87,7 @@ public class Store : Entity, IStore
             }
             else if(id < 0)
             {
-                InvalidIdException.EntityId();
+                throw new InvalidIdException();
             }
         }
         return null;

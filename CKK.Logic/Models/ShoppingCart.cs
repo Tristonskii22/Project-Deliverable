@@ -32,7 +32,7 @@ namespace CKK.Logic.Models
             return _items.Find(x => x.Product.GetId() == id);
             if (id < 0)
             {
-                InvalidIdException.EntityId();
+                throw new InvalidIdException();
             }
         }
         public ShoppingCartItem AddProduct(Product prod, int quantity)
@@ -60,7 +60,7 @@ namespace CKK.Logic.Models
         {
             if (quantity < 0)
             {
-                ProductDoesNotExistException.ProductDoesNotExist();
+                throw new ProductDoesNotExistException();
             }
             var RemoveItem = GetProductById(id);
             if (RemoveItem != null)

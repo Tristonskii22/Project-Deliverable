@@ -17,12 +17,12 @@ namespace CKK.Logic.Interfaces
         {
             get
             {
-                return Quantity;
+                return quantity;
             }
             set
             {
                 if (value >= 0)
-                    value = Quantity;
+                    value = quantity;
                 else
                 {
                     InventoryItemStockTooLowException.InventoryStockTooLow();
@@ -30,5 +30,6 @@ namespace CKK.Logic.Interfaces
 
             }
         }
+        private int quantity;
     }
 }

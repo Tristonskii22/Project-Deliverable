@@ -16,12 +16,12 @@ namespace CKK.Logic.Models
         {
             get
             {
-                return Price;
+                return price;
             }
             set
             {
                 if(value >= 0)
-                    Price = value;
+                    price = value;
                 else
                 {
                     throw new ArgumentOutOfRangeException();
@@ -30,7 +30,7 @@ namespace CKK.Logic.Models
         }
         //public int Id;
         //public string Name;
-        //public decimal Price;
+        public decimal price;
 
         public int GetId()
         {
