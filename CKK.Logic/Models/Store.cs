@@ -51,7 +51,7 @@ public class Store : Entity, IStore
     {
         if (quantity <= 0)
         {
-            throw new ProductDoesNotExistException();
+            throw new ArgumentOutOfRangeException();
         }
 
         var st = FindStoreItemById(id);
@@ -68,7 +68,7 @@ public class Store : Entity, IStore
 
             }
         }
-        throw new ArgumentOutOfRangeException();
+        throw new ProductDoesNotExistException();
 
 
 
