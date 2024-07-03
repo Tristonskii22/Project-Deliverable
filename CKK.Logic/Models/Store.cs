@@ -85,12 +85,11 @@ public class Store : Entity, IStore
             {
                 return Item[i];
             }
-            //else if(id < 0)
-            //{
-            //    throw new InvalidIdException();
-            //}
+            else if (id < 0)
+            {
+                throw new InvalidIdException();
+            }
         }
-        throw new InvalidIdException();
-        //return null;
+        return null;
     }
 }
