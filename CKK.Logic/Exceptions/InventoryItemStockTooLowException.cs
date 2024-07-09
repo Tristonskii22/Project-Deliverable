@@ -8,16 +8,16 @@ namespace CKK.Logic.Exceptions
 {
     public class InventoryItemStockTooLowException: Exception
     {
-        public static void InventoryStockTooLow()
+        public InventoryItemStockTooLowException()
+           : base("The inventory Item stock is too low")
         {
-            try
-            {
-                throw new Exception("error");
-            }
-            catch
-            {
-                Console.WriteLine("Inventory Item stock Too Low");
-            }
+
+        }
+
+        public InventoryItemStockTooLowException(string msg, Exception innerException)
+            : base(msg, innerException)
+        {
+
         }
     }
 }

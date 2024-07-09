@@ -8,17 +8,18 @@ namespace CKK.Logic.Exceptions
 {
     public class ProductDoesNotExistException: Exception
     {
-        public static void ProductDoesNotExist()
-        {
-            try
+        
+            public ProductDoesNotExistException()
+                : base("The product you tried to get does not exist")
             {
-                throw new Exception("Error");
 
             }
-            catch
+
+            public ProductDoesNotExistException(string msg, Exception innerException)
+                : base(msg, innerException)
             {
-                Console.WriteLine("This product does not exist");
+
             }
-        }
+        
     }
 }

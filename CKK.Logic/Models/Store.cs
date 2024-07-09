@@ -67,6 +67,7 @@ public class Store : Entity, IStore
                 st.Quantity = 0;
 
             }
+            return st;
         }
         throw new ProductDoesNotExistException();
 
@@ -79,16 +80,17 @@ public class Store : Entity, IStore
     }
     public StoreItem FindStoreItemById(int id)
     {
+        if (id < 0)
+        {
+            throw new InvalidIdException();
+        }
         for (int i = 0; i < Item.Count(); i++)
         {
             if (Item[i].Product.Id == id)
             {
                 return Item[i];
             }
-            else if (id < 0)
-            {
-                throw new InvalidIdException();
-            }
+         
         }
         return null;
     }

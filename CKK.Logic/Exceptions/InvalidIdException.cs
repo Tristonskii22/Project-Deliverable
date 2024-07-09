@@ -8,16 +8,16 @@ namespace CKK.Logic.Exceptions
 {
     public class InvalidIdException: Exception
     {
-        public static void EntityId()
+        public InvalidIdException()
+          : base("The Id entered was invalid")
         {
-            try
-            {
-                throw new Exception("Error");
-            }
-            catch
-            {
-                Console.WriteLine("Invalid Entry");
-            }
+
+        }
+
+        public InvalidIdException(string msg, Exception innerException)
+            : base(msg, innerException)
+        {
+
         }
     }
 }

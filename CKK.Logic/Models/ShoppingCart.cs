@@ -29,17 +29,18 @@ namespace CKK.Logic.Models
         }
         public ShoppingCartItem GetProductById(int id)
         {
-            return _items.Find(x => x.Product.GetId() == id);
             if (id < 0)
             {
                 throw new InvalidIdException();
             }
+
+            return _items.Find(x => x.Product.GetId() == id);
         }
         public ShoppingCartItem AddProduct(Product prod, int quantity)
         {
             if(quantity <= 0)
             {
-                InventoryItemStockTooLowException.InventoryStockTooLow();
+                throw new InventoryItemStockTooLowException();
             }
             var AddItem = GetProductById(prod.GetId());
             if (AddItem != null)
