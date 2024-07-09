@@ -22,7 +22,7 @@ namespace CKK.Logic.Interfaces
             set
             {
                 if (value >= 0)
-                    value = quantity;
+                    quantity = value;
                 else
                 {
                     throw new InventoryItemStockTooLowException();
