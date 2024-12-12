@@ -23,32 +23,55 @@ namespace CKK.UI
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            Product prod = new Product();
-            prod.SetName("Widget");
             
-            store.AddStoreItem(prod, 7);
-            List<StoreItem> storeItems = new List<StoreItem>();
-            storeItems = store.GetStoreItems();
-            foreach (StoreItem item in storeItems)
+        }
+
+        private void LoadItems()
+        {
+            allStoreItems.Items.Clear();
+            List<StoreItem> allItems = store.GetStoreItems();
+            foreach(StoreItem item in allItems)
             {
-                listView1.Items.Add(item.Product.GetName());
-                
+                allStoreItems.Items.Add(item.Product.Id + "-" + item.Product.Name + "=" + item.Quantity);
             }
         }
 
-        private void AddStore_Click(object sender, EventArgs e)
+        private void addButton_Click(object sender, EventArgs e)
         {
-            //get info for product
-
             Product product = new Product();
+            product.Id = Int32.Parse(idTextBox.Text);
+            product.Name = productTextBox.Text;
+            int quantity = Int32.Parse(quantityTextBox.Text);
 
-            product.price = 45.00;
-            product.Name = "Stuff";
-            product.Id = 2;
-            int quant = 8;
-            store.AddStoreItem(product, quant);
-            listView1.Items.Add(product.Name);
-            listView1.Items.Add(product.price);
+            store.AddStoreItem(product, quantity);
+            InventoryListBox.Items.Add(product.Id + "-" +product.Name + "=" + quantity);
+            idTextBox.Clear();
+            productTextBox.Clear();
+            quantityTextBox.Clear();
+        }
+
+        private void removeItemButton_Click(object sender, EventArgs e)
+        {
+            List<StoreItem> items = store.GetStoreItems();
+            if(allStoreItems.SelectedIndex != -1)
+            {
+                int itemToRemove = allStoreItems.SelectedIndex;
+                string selectText = allStoreItems.Items[itemToRemove].ToString();
+                int deshIndex = selectText.IndexOf("-");
+                int prodId = int.Parse(selectText.Substring(0, deshIndex));
+                store.DeleteStoreItem(prodId);
+                LoadItems();
+            }
+        }
+
+        private void viewAllButton_Click(object sender, EventArgs e)
+        {
+            LoadItems();
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

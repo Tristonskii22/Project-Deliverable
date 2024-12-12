@@ -94,4 +94,19 @@ public class Store : Entity, IStore
         }
         return null;
     }
+    public StoreItem DeleteStoreItem(int id)
+    {
+        var RemoveItem = FindStoreItemById(id);
+        if (RemoveItem != null)
+        {
+            
+            
+                RemoveItem.Quantity = 0;
+                Item.Remove(RemoveItem);
+                return RemoveItem;
+            
+            
+        }
+        return null;
+    }
 }
