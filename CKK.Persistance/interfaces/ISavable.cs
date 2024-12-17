@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CKK.Persistance.interfaces
 {
-    internal interface ISavable
+    public interface ISavable
     {
+        public void Save();
     }
 }

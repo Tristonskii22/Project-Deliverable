@@ -1,5 +1,6 @@
 ﻿using CKK.Logic.Exceptions;
 using CKK.Logic.Interfaces;
+using CKK.Logic.Models;
 using System;
 using System.Security.Cryptography.X509Certificates;
 

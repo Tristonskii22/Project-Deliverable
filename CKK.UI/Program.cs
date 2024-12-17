@@ -1,4 +1,6 @@
 using CKK.Logic.Models;
+using CKK.Persistance.Models;
+using CKK.Persistance.interfaces;
 namespace CKK.UI
 {
     internal static class Program
@@ -14,7 +16,7 @@ namespace CKK.UI
             ApplicationConfiguration.Initialize();
             Form1 form1 = new Form1();
             Application.Run(form1);
-            Store store = new Store();
+            FileStore store = new FileStore();
             if(form1.DialogResult == DialogResult.OK)
             {
                 Application.Run(new Form2(store));

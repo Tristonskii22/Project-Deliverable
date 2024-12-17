@@ -1,21 +1,15 @@
-﻿using CKK.Logic.Interfaces;
+﻿
+using CKK.Logic.Interfaces;
 using CKK.Logic.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using CKK.Persistance.Models;
+
 
 namespace CKK.UI
 {
     public partial class Form2 : Form
     {
-        private IStore store;
-        public Form2(IStore _store)
+        private FileStore store;
+        public Form2(FileStore _store)
         {
             store = _store;
             InitializeComponent();
@@ -71,7 +65,7 @@ namespace CKK.UI
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            
+            store.Save();
         }
     }
 }

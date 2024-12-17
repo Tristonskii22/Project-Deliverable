@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CKK.Persistance.interfaces
 {
-    internal interface ILoadable
+    public interface ILoadable
     {
+        public void Load();
     }
 }

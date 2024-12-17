@@ -1,4 +1,7 @@
-﻿namespace CKK.UI
+﻿using CKK.Logic.Interfaces;
+using CKK.Logic.Models;
+using CKK.Persistance.Models;
+namespace CKK.UI
 {
     partial class Form2
     {
