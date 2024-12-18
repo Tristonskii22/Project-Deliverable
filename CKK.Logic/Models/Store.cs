@@ -110,4 +110,54 @@ public class Store : Entity, IStore
         }
         return null;
     }
+    public List<StoreItem> GetAllProductsByName(string key)
+    {
+        if (string.IsNullOrEmpty(key))
+        {
+            return null;
+        }
+        else
+        {
+            List<StoreItem> templist = new List<StoreItem>();
+            char[] chars = key.ToCharArray();
+            for (int i = 0; i < Item.Count; i++)
+            {
+                for (int j = 0; j < chars.Length; j++)
+                {
+                    char[] lichars = Item[i].Product.Name.ToCharArray();
+                    if (chars[j] != lichars[j])
+                    {
+                        break;
+                    }
+                    if (j == chars.Length - 1)
+                    {
+                        templist.Add(Item[i]);
+                    }
+
+                }
+
+            }
+            return templist;
+
+        }
+    }
+
+    public List<StoreItem> GetAllProductsByQuantity()
+    {
+        Item = Item.OrderBy(x => x.Quantity).ToList();
+
+
+        return Item;
+    }
+
+    public List<StoreItem> GetAllProductsByPrice()
+    {
+        Item = Item.OrderBy(x => x.Product.Price).ToList();
+
+
+        return Item;
+
+    }
+
+    
 }

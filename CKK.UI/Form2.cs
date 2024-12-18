@@ -60,12 +60,40 @@ namespace CKK.UI
 
         private void viewAllButton_Click(object sender, EventArgs e)
         {
+            store.Load();
             LoadItems();
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
             store.Save();
+        }
+
+        private void SortByQuantity_Click(object sender, EventArgs e)
+        {
+            List<StoreItem> allItems = store.GetAllProductsByQuantity();
+            LoadItems();
+
+        }
+
+        private void SortByPrice_Click(object sender, EventArgs e)
+        {
+            List<StoreItem> allItems = store.GetAllProductsByPrice();
+            LoadItems();
+        }
+
+        private void Search_Click(object sender, EventArgs e)
+        {
+            List<StoreItem> items = store.GetStoreItems();
+            List<StoreItem> search = store.GetAllProductsByName(searchBox.Text);
+            string searchName = search.FirstOrDefault().Product.Name;
+            foreach(StoreItem item in items)
+            {
+                if(searchName == item.Product.Name)
+                {
+                    allStoreItems.Items.Add(item.Product.Id + "-" + item.Product.Name + "=" + item.Quantity);
+                }
+            }
         }
     }
 }

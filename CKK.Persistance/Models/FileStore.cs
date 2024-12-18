@@ -12,6 +12,7 @@ using System.Text.Json.Nodes;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
 using System.Net.Http.Json;
+using Newtonsoft.Json;
 
 namespace CKK.Persistance.Models
 {
@@ -49,25 +50,23 @@ namespace CKK.Persistance.Models
         
         public void Save()
         {
-            
-            BinaryFormatter format = new BinaryFormatter();
-            using (var stream = File.Create("Persistance"))
-            {
-                format.Serialize(stream, _items);
-            }
+            var JsonString = JsonConvert.SerializeObject(_items);
+            File.WriteAllText("Persistance", JsonString);
             
                 
         }
         public void Load()
         {
-            BinaryFormatter format = new BinaryFormatter();
-            using (var stream = File.OpenRead("Persistance"))
+            if(File.Exists("Persistance"))
             {
-                if(File.Exists(filePath))
-                {
-                    _items = (List<StoreItem>)format.Deserialize(stream);
-                }
+                var Lines = File.ReadAllText("Persistance");
+                _items = JsonConvert.DeserializeObject<List<StoreItem>>(Lines).ToList();
             }
+            
+            
+            
+            
+            
         }
         public StoreItem AddStoreItem(Product prod, int quantity)
         {

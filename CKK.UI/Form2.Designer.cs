@@ -43,6 +43,10 @@ namespace CKK.UI
             this.productLabel = new System.Windows.Forms.Label();
             this.quantityLabel = new System.Windows.Forms.Label();
             this.SaveButton = new System.Windows.Forms.Button();
+            this.SortByQuantity = new System.Windows.Forms.Button();
+            this.SortByPrice = new System.Windows.Forms.Button();
+            this.Search = new System.Windows.Forms.Button();
+            this.searchBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // idTextBox
@@ -151,11 +155,52 @@ namespace CKK.UI
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
+            // SortByQuantity
+            // 
+            this.SortByQuantity.Location = new System.Drawing.Point(543, 143);
+            this.SortByQuantity.Name = "SortByQuantity";
+            this.SortByQuantity.Size = new System.Drawing.Size(102, 23);
+            this.SortByQuantity.TabIndex = 12;
+            this.SortByQuantity.Text = "Sort By Quantity";
+            this.SortByQuantity.UseVisualStyleBackColor = true;
+            this.SortByQuantity.Click += new System.EventHandler(this.SortByQuantity_Click);
+            // 
+            // SortByPrice
+            // 
+            this.SortByPrice.Location = new System.Drawing.Point(661, 143);
+            this.SortByPrice.Name = "SortByPrice";
+            this.SortByPrice.Size = new System.Drawing.Size(102, 23);
+            this.SortByPrice.TabIndex = 13;
+            this.SortByPrice.Text = "Sort By Price";
+            this.SortByPrice.UseVisualStyleBackColor = true;
+            this.SortByPrice.Click += new System.EventHandler(this.SortByPrice_Click);
+            // 
+            // Search
+            // 
+            this.Search.Location = new System.Drawing.Point(543, 181);
+            this.Search.Name = "Search";
+            this.Search.Size = new System.Drawing.Size(75, 23);
+            this.Search.TabIndex = 14;
+            this.Search.Text = "Search";
+            this.Search.UseVisualStyleBackColor = true;
+            this.Search.Click += new System.EventHandler(this.Search_Click);
+            // 
+            // searchBox
+            // 
+            this.searchBox.Location = new System.Drawing.Point(633, 181);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(139, 23);
+            this.searchBox.TabIndex = 15;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.searchBox);
+            this.Controls.Add(this.Search);
+            this.Controls.Add(this.SortByPrice);
+            this.Controls.Add(this.SortByQuantity);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.quantityLabel);
             this.Controls.Add(this.productLabel);
@@ -190,5 +235,9 @@ namespace CKK.UI
         private Label productLabel;
         private Label quantityLabel;
         private Button SaveButton;
+        private Button SortByQuantity;
+        private Button SortByPrice;
+        private Button Search;
+        private TextBox searchBox;
     }
 }
