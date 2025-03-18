@@ -15,18 +15,14 @@ namespace CKK.Logic.Models
         {
             get; set;
         }
-        private List<ShoppingCartItem> _items = new List<ShoppingCartItem>();
-        //private ShoppingCartItem _product1;
-        //private ShoppingCartItem _product2;
-        //private ShoppingCartItem _product3;
+        private List<ShoppingCartItem> ShoppingCartItems { get; set; } = new List<ShoppingCartItem>();
+        
         public ShoppingCart (Customer cust)
         {
             Customer = cust;
         }
-        public int GetCustomerId()
-        {
-            return Customer.GetId();
-        }
+        public int CustomerId {  get; set; }
+        public int ShoppingCartId { get; set; }
         public ShoppingCartItem GetProductById(int id)
         {
             if (id < 0)
@@ -34,7 +30,7 @@ namespace CKK.Logic.Models
                 throw new InvalidIdException();
             }
 
-            return _items.Find(x => x.Product.GetId() == id);
+            return ShoppingCartItems.Find(x => x.Product.GetId() == id);
         }
         public ShoppingCartItem AddProduct(Product prod, int quantity)
         {
@@ -49,7 +45,7 @@ namespace CKK.Logic.Models
                 return AddItem;
             }
             ShoppingCartItem itemadd = new ShoppingCartItem(prod, quantity);
-            _items.Add(itemadd);
+            ShoppingCartItems.Add(itemadd);
             return itemadd;
             
         }
@@ -69,7 +65,7 @@ namespace CKK.Logic.Models
                 if(RemoveItem.Quantity - quantity <= 0)
                 {
                     RemoveItem.Quantity = 0;
-                    _items.Remove(RemoveItem);
+                    ShoppingCartItems.Remove(RemoveItem);
                     return RemoveItem;
                 }
                 RemoveItem.Quantity = RemoveItem.Quantity - quantity;
@@ -80,7 +76,7 @@ namespace CKK.Logic.Models
         public decimal GetTotal()
         {
             var grandtotal = 0m;
-            foreach (ShoppingCartItem product in _items)
+            foreach (ShoppingCartItem product in ShoppingCartItems)
             {
                 grandtotal += product.GetTotal();
             }
@@ -88,7 +84,7 @@ namespace CKK.Logic.Models
         }
         public List <ShoppingCartItem> GetProducts()
         {
-            return _items;
+            return ShoppingCartItems;
         }
     }
 }
