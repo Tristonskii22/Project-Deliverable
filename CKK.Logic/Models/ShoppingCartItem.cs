@@ -1,4 +1,5 @@
-﻿using CKK.Logic.Interfaces;
+﻿using CKK.Logic.Exceptions;
+using CKK.Logic.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,20 +11,34 @@ namespace CKK.Logic.Models
     [Serializable]
     public class ShoppingCartItem : InventoryItem
     {
-        //private int _quantity;
-        //private Product _product;
-
-
-        public ShoppingCartItem(Product _product, int _quantity)
+        public Product Product { get; set; }
+        public int ShoppingCartId { get; set; }
+        public int CustomerId { get; set; }
+        public int ProductId { get; set; }
+        private int quantity { get; set; }
+        public int Quantity
         {
-            Quantity = _quantity;
-            Product = _product;
+            get
+            {
+                return quantity;
+            }
+            set
+            {
+                if (value >= 0)
+                {
+                    quantity = value;
+                }
+                else
+                {
+                    throw new InventoryItemStockTooLowException();
+                }
+            }
         }
-        
         public decimal GetTotal()
         {
-            return Product.GetPrice() * Quantity;
+            return Product.Price * Quantity;
         }
     }
-
 }
+
+
