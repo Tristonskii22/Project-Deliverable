@@ -3,7 +3,7 @@ using CKK.Logic.Interfaces;
 using CKK.Logic.Models;
 using CKK.Persistance.Models;
 
-
+//hi
 namespace CKK.UI
 {
     public partial class Form2 : Form
@@ -60,7 +60,7 @@ namespace CKK.UI
 
         private void viewAllButton_Click(object sender, EventArgs e)
         {
-            store.Load();
+            
             LoadItems();
         }
 
@@ -94,6 +94,11 @@ namespace CKK.UI
                     allStoreItems.Items.Add(item.Product.Id + "-" + item.Product.Name + "=" + item.Quantity);
                 }
             }
+        }
+
+        private void Load_Click(object sender, EventArgs e)
+        {
+            store.Load();
         }
     }
 }

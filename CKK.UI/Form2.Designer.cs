@@ -47,6 +47,7 @@ namespace CKK.UI
             this.SortByPrice = new System.Windows.Forms.Button();
             this.Search = new System.Windows.Forms.Button();
             this.searchBox = new System.Windows.Forms.TextBox();
+            this.Load = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // idTextBox
@@ -192,11 +193,22 @@ namespace CKK.UI
             this.searchBox.Size = new System.Drawing.Size(139, 23);
             this.searchBox.TabIndex = 15;
             // 
+            // Load
+            // 
+            this.Load.Location = new System.Drawing.Point(429, 409);
+            this.Load.Name = "Load";
+            this.Load.Size = new System.Drawing.Size(75, 23);
+            this.Load.TabIndex = 16;
+            this.Load.Text = "Load File";
+            this.Load.UseVisualStyleBackColor = true;
+            this.Load.Click += new System.EventHandler(this.Load_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Load);
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.Search);
             this.Controls.Add(this.SortByPrice);
@@ -215,7 +227,7 @@ namespace CKK.UI
             this.Controls.Add(this.idTextBox);
             this.Name = "Form2";
             this.Text = "Form2";
-            this.Load += new System.EventHandler(this.Form2_Load);
+            
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,5 +251,6 @@ namespace CKK.UI
         private Button SortByPrice;
         private Button Search;
         private TextBox searchBox;
+        private Button Load;
     }
 }
