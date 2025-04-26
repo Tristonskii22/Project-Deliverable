@@ -1,6 +1,5 @@
 ﻿using CKK.DB.Interfaces;
 using CKK.DB.Repository;
-using CKK.Logic.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,16 +10,18 @@ namespace CKK.DB.UOW
 {
     public class UnitOfWork : IUnitOfWork
     {
-        //initialze the unit of work
+        //opens connection to database for the products, Order, and shoppingCarts repository 
         public UnitOfWork(IConnectionFactory Conn)
         {
             Products = new ProductRepository(Conn);
             Orders = new OrderRepository(Conn);
             ShoppingCarts = new ShoppingCartRepository(Conn);
         }
-        public IProductRepository Products { get; private set; }
 
+        public IProductRepository Products { get; private set; }
         public IOrderRepository Orders { get; private set; }
+
         public IShoppingCartRepository ShoppingCarts { get; private set; }
+
     }
 }

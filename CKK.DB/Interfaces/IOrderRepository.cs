@@ -7,10 +7,8 @@ using CKK.Logic.Models;
 
 namespace CKK.DB.Interfaces
 {
-    public interface IOrderRepository
+    public interface IOrderRepository : IGenericRepository<Order>
     {
-        Order GetById(int id);
-        public int Add(Order entity);
-        public int Delete(int id);
+        Order GetOrderByCustomerId(int Id);
     }
 }

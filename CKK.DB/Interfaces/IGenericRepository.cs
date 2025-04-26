@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CKK.Logic.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,6 @@ namespace CKK.DB.Interfaces
         int Add(T entity);
         int Update(T entity);
         int Delete(int id);
+        Order GetById(int orderId, Order? result, Order? result);
     }
-
 }

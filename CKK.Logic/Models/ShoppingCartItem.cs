@@ -15,10 +15,5 @@ namespace CKK.Logic.Models
         public int CustomerId { get; set; }
         public int ProductId { get; set; }
         public int Quantity { get; set; }
-
-        public decimal GetTotal(decimal price)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
