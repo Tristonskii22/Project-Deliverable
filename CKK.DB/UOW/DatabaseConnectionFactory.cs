@@ -12,15 +12,16 @@ namespace CKK.DB.UOW
 {
     public class DatabaseConnectionFactory : IConnectionFactory
     {
-        //Method that places name in the conncectionStrings
+        //return connection string
         public static string CnnVal(string name)
         {
             return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
-        //sets name of connectionString 
-        //private readonly string connectionString = "Data Source = (localdb)\\MSSQLLocalDB;Initial Catalog = StructuredProjectDB";
-        private readonly string connectionString = "Server=localhost\\SQLEXPRESS;Database=StructuredProjectDB;Trusted_Connection=True;";
 
+        //initialize connection string
+        private readonly string connectionString = "Data Source = (localdb)\\MSSQLLocalDB;Initial Catalog = StructuredProjectDB";
+
+        //create connection
         public IDbConnection GetConnection
         {
             get
@@ -32,7 +33,8 @@ namespace CKK.DB.UOW
                 conn.ConnectionString = connectionString;
                 return conn;
             }
-
         }
+
+
     }
 }
